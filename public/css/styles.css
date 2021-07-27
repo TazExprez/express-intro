@@ -1,0 +1,27 @@
+body {
+    background: white;
+}
+
+h1 {
+    color: red;
+}
+
+header {
+    background: red;
+    color: white;
+}
+
+.logo {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.delete-btn {
+    color: green;
+    padding: 10px 20px;
+    margin-left: 20px;
+    background: orange;
+    border-radius: 5px;
+    font-weight: 700;
+    text-decoration: none;
+}

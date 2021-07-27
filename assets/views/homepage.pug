@@ -1,0 +1,121 @@
+//- Here we are extending the template layout file that we are going to be using with this homepage.pug file.  We just have to put the location and the name of the template layout file.  We do not need to put the extension for the template layout file.
+//- We are extending the app.pug template layout file with this homepage.pug file.
+//- If we go to localhost:3000/pug, we'll notice that the page does not have the header that the homepage.pug file has.  Back in the day, we had to put the header on every single HTML page on the server.  Now all we have to do is create a template and extend the template layout file, the layout.  All of our content can stay the same, but now it can have the header everywhere.
+extends layouts/app
+
+//- The way this is going to work is that we are going to take the content that is inside of the block seo and the block content sections.  We are going to be using the template layout file, app.pug, to do a "find and replace."  This means that whatever we have inside of the block seo below, for example, is going to be put inside of the block seo inside of the the app.pug template layout file.  Whatever we have inside of the block content below is going to be put inside of the block content in the app.pug template layout file.
+
+block seo 
+  //- We can use regular HTML in pug and it will work some of the time.  Remember to use the pug format to make sure that there are no errors.
+  //- <title>Home Page</title>
+  title Home Page
+
+block content 
+  //- h1 Home Page
+  //- We moved this content here from the app.pug template layout file.
+  // Banner
+  section#banner
+    .content
+      header
+        h1
+          | Hi, I’m Editorial
+          br
+          | 											by HTML5 UP
+        p A free and fully responsive site template
+      p
+        | Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.
+      ul.actions
+        li
+          a.button.big(href='#') Learn More
+    span.image.object
+      img(src='images/pic10.jpg' alt='')
+  // Section
+  section
+    header.major
+      h2 Erat lacinia
+    .features
+      article
+        span.icon.fa-gem
+        .content
+          h3 Portitor ullamcorper
+          p
+            | Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+      article
+        span.icon.solid.fa-paper-plane
+        .content
+          h3 Sapien veroeros
+          p
+            | Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+      article
+        span.icon.solid.fa-rocket
+        .content
+          h3 Quam lorem ipsum
+          p
+            | Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+      article
+        span.icon.solid.fa-signal
+        .content
+          h3 Sed magna finibus
+          p
+            | Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+  // Section
+  section
+    header.major
+      h2 Ipsum sed dolor
+    .posts
+      article
+        a.image(href='#')
+          img(src='images/pic01.jpg' alt='')
+        h3 Interdum aenean
+        p
+          | Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+        ul.actions
+          li
+            a.button(href='#') More
+      article
+        a.image(href='#')
+          img(src='images/pic02.jpg' alt='')
+        h3 Nulla amet dolore
+        p
+          | Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+        ul.actions
+          li
+            a.button(href='#') More
+      article
+        a.image(href='#')
+          img(src='images/pic03.jpg' alt='')
+        h3 Tempus ullamcorper
+        p
+          | Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+        ul.actions
+          li
+            a.button(href='#') More
+      article
+        a.image(href='#')
+          img(src='images/pic04.jpg' alt='')
+        h3 Sed etiam facilis
+        p
+          | Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+        ul.actions
+          li
+            a.button(href='#') More
+      article
+        a.image(href='#')
+          img(src='images/pic05.jpg' alt='')
+        h3 Feugiat lorem aenean
+        p
+          | Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+        ul.actions
+          li
+            a.button(href='#') More
+      article
+        a.image(href='#')
+          img(src='images/pic06.jpg' alt='')
+        h3 Amet varius aliquam
+        p
+          | Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+        ul.actions
+          li
+            a.button(href='#') More
+
+//- If you need to use regular HTML and/or JavaScript because of Google Analytics, or something else, use an include file.  Create an includes folder.  The content inside of the includes folder will be like little snippets that we can use anywhere.  We can use regular pug format or regular HTML format and include it anywhere that we like.

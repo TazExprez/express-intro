@@ -1,0 +1,37 @@
+//- Now we are extending the app.pug template layout file in this testing.pug file.
+extends layouts/app
+
+block seo 
+  title Pug Testing
+block content
+  h1 Testing Pug Template Engine
+  if loggedIn 
+    .card 
+      h2= username
+      h3 #{fname} #{lname}
+      each friend in friends 
+        li= friend
+
+//- Now we do not need this and are extending the app.pug template layout file.
+//- doctype html
+//- html(lang='en')
+//-   head
+//-     meta(charset='UTF-8')
+//-     meta(http-equiv='X-UA-Compatible' content='IE=edge')
+//-     meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//-     title Contact Page
+//-     link(rel='stylesheet' href='/css/styles.css')
+//-   body
+    h1 Testing Pug Template Engine
+    //- If the loggedIn variable is true, if we are logged in, this .card <div> will be displayed.  If we are not logged in, then this .card <div> will not be displayed.
+    if loggedIn
+        //- Here we are creating a <div> with the .card. 
+        .card 
+            //- We are using an indentation to show that now we want to place another element, or another text, inside of this .card <div>.  Here we are going to say h2, to use an <h2>.  We are also going to use an = sign, h2=, to show that we are going to use one of the variables that we set up inside of the {} in the res.render() method in the route for the /pug directory in the routes.js file.  To get access to one the variables, we have to put an = sign next to whichever element we want to have access to one of the variables.  We can also use one or more placeholders, #{}, to use the variables in elements.
+            h2= username
+            h3 #{fname} #{lname}
+            //- Now we are going to loop over the friends [] from the {} inside of the res.render() from the /pug route in the routes.js file.  We are calling the val friend.  You can call val whatever you want and it is basically a temporary variable that you are creating.  You are looping over the friends [].  You are going to create an <li> for each [] element inside of the friends [] and you are going to place each [] element inside each <li>.  Joe had an error because he called the array users, instead of the actual name, friends.
+            each friend in friends 
+                li= friend
+
+//- A thing that is great about using a template engine, like pug, is that the template engine will tell you if there is a problem, like one with a variable, or with syntax.  The template engine will show you what problem you are having and where it is located.

@@ -1,0 +1,37 @@
+//- Now we are going to create a layout with pug.  We named this file app.pug, but it could have been named whatever we wanted.  We put this file inside of the layouts folder, which is inside of the views folder.
+//- If you go to many sites, areas like the header and the footer do not change.  By creating a layout, we are keeping the things that are going to remain the same on every single page on our website inside of a template layout.  Then we are going to create pages only for the things that change.  Generally only the content, some parts of the meta tag, or the head tag, change.  The title and some meta tags for the SEO might change.
+
+//- We are going to be using this template layout throughout all of our pages.  We are basically setting up some type of layout that we are going to be following every single time, as long as we extend this layout.
+
+doctype html
+html(lang='en')
+  head
+    //- Anything that has to be put inside of the head tag will show up here.
+    block seo
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    //- We do not need this anymore and it will be handled by block seo.
+    //- title Contact Page
+    link(rel='stylesheet' href='/css/styles.css')
+    //- Here we are including the JavaScript from the HTML file in the includes folder, the jshead.html file.  This is just regular HTML that we are including in this file.  There may be some situations where we may want to do this.
+    include ../includes/jshead.html
+  body
+    //- This is a <header> with a .logo <div> inside of it.  The text CodingPhase is inside of the .logo <div>.
+    //- header 
+    //-   //- .logo CodingPhase
+    //-   //- We can now make changes across all of the pages by simply changing the template layout file.
+    //-   .logo Billy's Shop
+    //- Now we moved the header to the includes folder inside of the header.pug file.
+    //- Here we are including the header from the header.pug file inside of the includes folder.  Since we are currently in the layouts folder, we have to go back to the views folder, then inside of the includes folder, so we have to use two dots, .., here.  Then we go to the header.pug file.  Now we have our header included.
+    //- My way.
+    //- include ../includes/header
+    //- Joe's way.
+    include ../includes/header.pug
+    //- Now that we have this template set up, we are going to set up some blocks.
+    //- Anything that has to show up inside of the body area, the content area, will be put in here.
+    block content
+
+//- The template layout, or layout, will stay the same across our whole website.  The only thing that changes on each page is the content.
+
+//- This app.pug file is our template layout file.  The homepage.pug and the testing.pug files extend the app.pug template layout file.  Then we have the files inside of the includes folder, the header.pug and the jshead.html files.  These two files contain small snippets that we can reuse anywhere throughout our whole website.

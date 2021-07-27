@@ -1,0 +1,37 @@
+//- This page is going to be used to create a post in our blog.
+//- We moved this file to the post folder in order to organize this project better.
+
+//- extends layouts/app
+//- Since we are inside of the views folder for the generic.pug, the homepage.pug, and the testing.pug files, we just have to go to the layouts folder and then to the app, and just have to write extends layouts/app.  Since we are now inside of the post folder, we have to go back to the views folder, then we have to go to the layouts folder, and finally to the app, so we have to write ../layouts/app in this create.pug file.
+extends ../layouts/app
+
+block seo
+  title Create Post
+
+block content
+  // Banner
+  section#banner
+    .content
+        //- Here we are creating a form.
+        //- form
+        //- Here we have to pass in an action and a method.  For the action, we have to put in the url of the location that we are doing the POST request to.  The route is "/post/create", so this is where we are posting to.  For the method we put in POST because we are doing a POST request.
+        form(action="/post/create" method="POST")
+            //- Here we are creating a label.
+            label Title
+            //- Here we are creating an input field.
+            //- input(type="text" name="demo-name" id="demo-name" value="" placeholder="Name")
+            //- What you name the input fields and the textareas is very important.  The name is going to be the name of the variable where the data is going to be located.
+            input(type="text" name="title" id="demo-name" value="" placeholder="Enter post title")
+            //- We are adding an image URL section because Joe had an error because he did not provide an image_url to the MySQL database in a query.
+            label Image URL
+            //- In a full stack application, we would be giving the user the option of uploading the image, instead of entering the URL.  This is the image that Joe used https://i.ytimg.com/vi/KfWrwBCYfsk/maxresdefault.jpg.
+            input(type="text" name="image_url" id="demo-name" value="" placeholder="Enter featured image")
+            label Description 
+            //- Here we are creating a textarea.
+            //- textarea(name="demo-message" id="demo-message" placeholder="Enter your message" rows="6")
+            textarea(name="description" id="demo-message" placeholder="Enter your message" rows="6")
+            //- Here we are creating a button.
+            //- My way.
+            input(type="submit" value="Send Message" class="primary")
+            //- Joe's way.
+            //- <input type="submit" value="Send Message" class="primary">

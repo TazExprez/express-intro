@@ -1,0 +1,31 @@
+//- This page is going to be used to edit a post in our blog.
+
+//- Here we are going to take in the information that we have from our database.
+
+extends ../layouts/app
+
+block seo
+  title Create Post
+
+block content
+  // Banner
+  section#banner
+    .content
+        //- form(action="/post/create" method="POST")
+        //- We are changing this because we want this to be submitted to the /post/id/edit route, not the /post/create route, so we will change the action to `/post/${id}/edit`.  We need to use a template string so that we can have a placeholder for the id so that we can use the actual id.
+        form(action=`/post/${id}/edit` method="POST")
+            label Title
+            //- input(type="text" name="title" id="demo-name" value="" placeholder="Enter post title")
+            //- Here we are assigning the title variable, that we passed down to this view, to the value property.  We received from the MySQL server to the <input> below.
+            input(type="text" name="title" id="demo-name" value=`${title}` placeholder="Enter post title")
+            label Image URL
+            //- input(type="text" name="image_url" id="demo-name" value="" placeholder="Enter featured image")
+            input(type="text" name="image_url" id="demo-name" value=`${image_url}` placeholder="Enter featured image")
+            label Description 
+            //- textarea(name="description" id="demo-message" placeholder="Enter your message" rows="6")
+            //- When we use the = sign after an element, that means that we are going to bring in a variable.  It means that we are going to be doing some JavaScript and assigning the result to the element, like = 3+3, which will assign 6 to the <textarea> below.
+            //- Here we are using the description variable that we received from the data {} that we passed in here to this view, which we received from the MySQL database.
+            textarea(name="description" id="demo-message" placeholder="Enter your message" rows="6")= description
+            input(type="submit" value="Send Message" class="primary")
+            //- We are using this <a> to delete the post that we are currently viewing on the edit page.
+            a.delete-btn(href=`/post/${id}/delete`) Delete Post
